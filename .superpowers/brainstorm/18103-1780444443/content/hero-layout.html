@@ -1,0 +1,271 @@
+<style>
+  .hero-mock {
+    background: #0A0A0F;
+    border: 1px solid #1F1F2E;
+    border-radius: 12px;
+    padding: 32px;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+  }
+  .hero-mock::before {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%);
+    top: -40px; left: -40px;
+  }
+  .hero-mock::after {
+    content: '';
+    position: absolute;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(34,211,238,0.12) 0%, transparent 70%);
+    bottom: -20px; right: 60px;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-family: monospace;
+    color: #22D3EE;
+    border: 1px solid #22D3EE44;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .hero-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: #E8E8F0;
+    line-height: 1.15;
+    margin: 0 0 4px;
+  }
+  .hero-name span {
+    background: linear-gradient(135deg, #7C3AED, #22D3EE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-role {
+    font-size: 14px;
+    color: #8B8B9E;
+    margin: 0 0 10px;
+    font-weight: 400;
+  }
+  .hero-phrase {
+    font-size: 11px;
+    color: #8B8B9E;
+    line-height: 1.5;
+    max-width: 340px;
+    margin: 0 0 16px;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    font-size: 10px;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, #7C3AED, #22D3EE);
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .btn-outline {
+    font-size: 10px;
+    padding: 5px 14px;
+    border: 1px solid #1F1F2E;
+    color: #8B8B9E;
+    border-radius: 6px;
+  }
+  /* Avatar / Photo */
+  .avatar-circle {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    border: 2px solid #22D3EE44;
+    box-shadow: 0 0 20px rgba(34,211,238,0.2);
+    object-fit: cover;
+    background: #12121A;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    overflow: hidden;
+  }
+  .avatar-hex {
+    width: 90px; height: 90px;
+    clip-path: polygon(50% 0%,93% 25%,93% 75%,50% 100%,7% 75%,7% 25%);
+    background: linear-gradient(135deg, #7C3AED44, #22D3EE44);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  /* Layout A - Split */
+  .layout-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .layout-split .text-side { flex: 1; }
+  .layout-split .photo-side {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  /* Layout B - Centered */
+  .layout-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .layout-centered .avatar-circle { margin-bottom: 12px; }
+  .layout-centered .hero-phrase { text-align: center; margin: 0 auto 16px; }
+  .layout-centered .hero-btns { justify-content: center; }
+  /* Layout C - Text only */
+  .layout-textonly .hero-name { font-size: 32px; }
+  .layout-textonly .section-num {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    font-family: monospace;
+    font-size: 72px;
+    color: #1F1F2E;
+    font-weight: 700;
+    line-height: 1;
+    z-index: 0;
+  }
+  .layout-textonly .content { position: relative; z-index: 1; }
+  .logo-sm {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, #7C3AED, #22D3EE);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .social-row { display: flex; gap: 6px; margin-top: 8px; }
+  .social-chip {
+    font-size: 9px;
+    padding: 3px 8px;
+    border: 1px solid #1F1F2E;
+    border-radius: 4px;
+    color: #8B8B9E;
+    font-family: monospace;
+  }
+  .card-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8B8B9E;
+    margin-top: 4px;
+  }
+</style>
+
+<h2>¿Cómo querés el hero?</h2>
+<p class="subtitle">Tres composiciones distintas — todas usan tu foto y logo. Hacé click para seleccionar.</p>
+
+<div class="cards">
+
+  <!-- Opción A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 0;">
+      <div class="hero-mock">
+        <div class="layout-split">
+          <div class="text-side">
+            <div class="tag">Full Stack .NET · 01</div>
+            <h1 class="hero-name">Tomás <span>Basso</span></h1>
+            <p class="hero-role">Desarrollador Full Stack .NET</p>
+            <p class="hero-phrase">Construyo soluciones reales de negocio: ERPs, e-commerce y automatizaciones con IA.</p>
+            <div class="hero-btns">
+              <span class="btn-primary">Ver proyectos</span>
+              <span class="btn-outline">Contacto</span>
+              <span class="btn-outline">CV</span>
+            </div>
+            <div class="social-row">
+              <span class="social-chip">GitHub</span>
+              <span class="social-chip">LinkedIn</span>
+            </div>
+          </div>
+          <div class="photo-side">
+            <div class="avatar-circle" style="width:100px;height:100px;border:2px solid #22D3EE55;box-shadow:0 0 30px rgba(34,211,238,0.25);">
+              <img src="/assets/FotoPersonal.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none';this.parentNode.innerHTML='TB'">
+            </div>
+            <span class="card-label">+Glow ring</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Split horizontal</h3>
+      <p>Texto a la izquierda, foto a la derecha con ring de neón. Layout clásico de portfolio dev, muy legible en desktop. En mobile apila verticalmente.</p>
+    </div>
+  </div>
+
+  <!-- Opción B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 0;">
+      <div class="hero-mock">
+        <div class="layout-centered">
+          <div class="avatar-circle" style="width:80px;height:80px;border:2px solid #7C3AED66;box-shadow:0 0 24px rgba(124,58,237,0.3);">
+            <img src="/assets/FotoPersonal.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none';this.parentNode.innerHTML='TB'">
+          </div>
+          <div class="tag">Desarrollador Full Stack .NET</div>
+          <h1 class="hero-name">Tomás <span>Basso Fernández</span></h1>
+          <p class="hero-phrase">Construyo soluciones reales de negocio: ERPs, e-commerce y automatizaciones con IA, orientadas a escalabilidad y seguridad.</p>
+          <div class="hero-btns">
+            <span class="btn-primary">Ver proyectos</span>
+            <span class="btn-outline">Contacto</span>
+          </div>
+          <div class="social-row" style="justify-content:center;">
+            <span class="social-chip">GitHub</span>
+            <span class="social-chip">LinkedIn</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Centrado con foto</h3>
+      <p>Todo centrado, foto arriba como avatar. Simple, personal y simétrico. Funciona muy bien en mobile y da un toque más humano/cercano.</p>
+    </div>
+  </div>
+
+  <!-- Opción C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 0;">
+      <div class="hero-mock layout-textonly">
+        <div class="section-num">01</div>
+        <div class="content">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+            <img src="/assets/MiLogoPersonal.png" style="width:36px;height:36px;object-fit:contain;" onerror="this.style.display='none'">
+            <span class="tag" style="margin:0;">Disponible para Remote</span>
+          </div>
+          <h1 class="hero-name" style="font-size:30px;">Tomás <span>Basso</span><br><span style="-webkit-text-fill-color:#E8E8F0;background:none;">Fernández</span></h1>
+          <p class="hero-role" style="font-size:16px;color:#22D3EE;margin:4px 0 8px;">Desarrollador Full Stack .NET</p>
+          <p class="hero-phrase">Construyo soluciones reales de negocio orientadas a escalabilidad, seguridad y eficiencia operativa.</p>
+          <div class="hero-btns">
+            <span class="btn-primary">Ver proyectos</span>
+            <span class="btn-outline">Contacto</span>
+            <span class="btn-outline">↓ CV</span>
+          </div>
+          <div class="social-row">
+            <span class="social-chip">GitHub</span>
+            <span class="social-chip">LinkedIn</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Tipográfico + Logo</h3>
+      <p>Sin foto, protagonismo total del nombre y logo TB. Número de sección grande decorativo. Más minimalista y "agencia". La foto aparece en la sección "Sobre mí".</p>
+    </div>
+  </div>
+
+</div>
