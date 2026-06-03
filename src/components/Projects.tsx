@@ -92,6 +92,18 @@ export default function Projects() {
                   → {p.resultado}
                 </p>
               )}
+
+              {p.link && (
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="self-start font-mono text-xs px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
+                  style={{ background: 'var(--grad)', color: '#fff' }}
+                >
+                  Ver proyecto →
+                </a>
+              )}
             </motion.article>
           ))}
         </div>

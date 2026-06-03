@@ -53,6 +53,7 @@ export interface Proyecto {
   titulo: string
   descripcion: string
   resultado?: string
+  link?: string
   stackItems: string[]
   gradFrom: string
   gradTo: string
@@ -98,6 +99,17 @@ export const proyectos: Proyecto[] = [
     stackItems: ['n8n', 'Docker', 'Webhooks', 'IMAP/Gmail API', 'OpenAI / Gemini'],
     gradFrom: '#7C3AED',
     gradTo: '#E879F9',
+  },
+  {
+    id: 'turnero',
+    num: '05',
+    titulo: 'Turnero Médico — Sistema de Gestión de Turnos',
+    descripcion: 'App web full-stack para consultorios: reserva online paso a paso (wizard especialidad → médico → horario → datos), generación automática de disponibilidad según agenda, ausencias y duración configurable. Panel administrativo con roles (Admin, Médico, Recepcionista), ABM completo, gestión de estados y recordatorios automáticos por email el día previo al turno.',
+    resultado: 'Deployado en producción en Vercel con lógica de disponibilidad propia (sin librerías externas).',
+    link: 'https://turnero-consultorio-seven.vercel.app',
+    stackItems: ['Next.js 16', 'React 19', 'TypeScript', 'Prisma ORM', 'PostgreSQL', 'Supabase', 'Tailwind CSS 4', 'Resend', 'Upstash Redis', 'Vercel'],
+    gradFrom: '#22D3EE',
+    gradTo: '#7C3AED',
   },
 ]
 
