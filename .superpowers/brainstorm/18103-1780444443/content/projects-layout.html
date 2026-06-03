@@ -1,0 +1,225 @@
+<style>
+  * { box-sizing: border-box; }
+  .mock-section {
+    background: #0A0A0F;
+    border: 1px solid #1F1F2E;
+    border-radius: 12px;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+  }
+  .mock-tag {
+    display: inline-block;
+    font-size: 9px;
+    font-family: monospace;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid #1F1F2E;
+    color: #22D3EE;
+    margin: 2px;
+  }
+  .mock-card {
+    background: #12121A;
+    border: 1px solid #1F1F2E;
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .mock-card-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #E8E8F0;
+    margin: 0 0 4px;
+  }
+  .mock-card-desc {
+    font-size: 10px;
+    color: #8B8B9E;
+    margin: 0 0 8px;
+    line-height: 1.5;
+  }
+  .mock-card-result {
+    font-size: 9px;
+    color: #22D3EE;
+    font-style: italic;
+  }
+  .num-big {
+    font-size: 48px;
+    font-weight: 800;
+    color: #1F1F2E;
+    font-family: monospace;
+    line-height: 1;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+  }
+  .mock-card-rel { position: relative; overflow: hidden; }
+  .grad-bar {
+    height: 2px;
+    background: linear-gradient(90deg, #7C3AED, #22D3EE);
+    border-radius: 1px;
+    margin-bottom: 10px;
+  }
+  .section-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #8B8B9E;
+    margin-bottom: 12px;
+    font-family: monospace;
+  }
+</style>
+
+<h2>¿Cómo querés la grilla de proyectos?</h2>
+<p class="subtitle">4 proyectos — tres formas de mostrarlos. Seleccioná el que más te gusta.</p>
+
+<div class="cards">
+
+  <!-- Opción A: 2 columnas uniformes -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0">
+      <div class="mock-section">
+        <div class="section-label">// Proyectos destacados</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div class="mock-card mock-card-rel">
+            <div class="grad-bar"></div>
+            <span class="num-big">01</span>
+            <div class="mock-card-title">ERP / Inventario</div>
+            <div class="mock-card-desc">Ferretería · Gestión de stock en tiempo real.</div>
+            <div><span class="mock-tag">ASP.NET Core 8</span><span class="mock-tag">EF Core</span><span class="mock-tag">SQL Server</span></div>
+            <div class="mock-card-result">→ Digitalización del proceso comercial</div>
+          </div>
+          <div class="mock-card mock-card-rel">
+            <div class="grad-bar" style="background:linear-gradient(90deg,#E879F9,#7C3AED)"></div>
+            <span class="num-big">02</span>
+            <div class="mock-card-title">App Finanzas</div>
+            <div class="mock-card-desc">Móvil multiplataforma · API REST propia.</div>
+            <div><span class="mock-tag">.NET MAUI</span><span class="mock-tag">JWT</span></div>
+          </div>
+          <div class="mock-card mock-card-rel">
+            <div class="grad-bar" style="background:linear-gradient(90deg,#22D3EE,#E879F9)"></div>
+            <span class="num-big">03</span>
+            <div class="mock-card-title">E-Commerce Paz Sport</div>
+            <div class="mock-card-desc">Ventas online con panel admin.</div>
+            <div><span class="mock-tag">React.js</span><span class="mock-tag">Web API</span></div>
+            <div class="mock-card-result">→ Automatización de promociones</div>
+          </div>
+          <div class="mock-card mock-card-rel">
+            <div class="grad-bar" style="background:linear-gradient(90deg,#7C3AED,#E879F9)"></div>
+            <span class="num-big">04</span>
+            <div class="mock-card-title">Automatización IA</div>
+            <div class="mock-card-desc">Workflows + bots + LLMs.</div>
+            <div><span class="mock-tag">n8n</span><span class="mock-tag">Docker</span><span class="mock-tag">OpenAI</span></div>
+            <div class="mock-card-result">→ Reducción de tareas manuales</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Grid 2×2 uniforme</h3>
+      <p>Cuatro cards del mismo tamaño. Limpio, balanceado, predecible. Cada card tiene número grande, gradiente de color distinto y tags de stack.</p>
+    </div>
+  </div>
+
+  <!-- Opción B: Featured + 3 small -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0">
+      <div class="mock-section">
+        <div class="section-label">// Proyectos destacados</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <!-- Featured card -->
+          <div class="mock-card mock-card-rel" style="grid-column:1/-1;display:flex;gap:14px;align-items:flex-start;">
+            <div style="flex:1">
+              <div class="grad-bar"></div>
+              <div style="font-size:9px;color:#22D3EE;font-family:monospace;margin-bottom:4px;">PROYECTO DESTACADO · 01</div>
+              <div class="mock-card-title" style="font-size:15px;margin-bottom:6px;">ERP / Sistema de Inventario – Ferretería</div>
+              <div class="mock-card-desc">Aplicación web para gestión de productos, ventas y control de stock en tiempo real. Autenticación segura con roles y 2FA. Arquitectura en capas orientada a mantenimiento.</div>
+              <div style="margin-bottom:6px;"><span class="mock-tag">ASP.NET Core 8</span><span class="mock-tag">EF Core</span><span class="mock-tag">Identity + 2FA</span><span class="mock-tag">SQL Server</span></div>
+              <div class="mock-card-result">→ Digitalización completa del proceso comercial</div>
+            </div>
+            <div style="width:70px;min-width:70px;height:70px;background:linear-gradient(135deg,#7C3AED22,#22D3EE22);border:1px solid #1F1F2E;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:28px;font-weight:800;color:#1F1F2E;font-family:monospace;">01</span>
+            </div>
+          </div>
+          <!-- 3 smaller cards -->
+          <div class="mock-card mock-card-rel">
+            <div class="grad-bar" style="background:linear-gradient(90deg,#E879F9,#7C3AED)"></div>
+            <div class="mock-card-title">App Finanzas</div>
+            <div class="mock-card-desc" style="font-size:9px;">.NET MAUI · API REST · JWT</div>
+            <div><span class="mock-tag">.NET MAUI</span></div>
+          </div>
+          <div class="mock-card mock-card-rel">
+            <div class="grad-bar" style="background:linear-gradient(90deg,#22D3EE,#E879F9)"></div>
+            <div class="mock-card-title">E-Commerce</div>
+            <div class="mock-card-desc" style="font-size:9px;">React · Web API · Multi-sucursal</div>
+            <div><span class="mock-tag">React.js</span></div>
+          </div>
+          <div class="mock-card mock-card-rel" style="grid-column:1/-1;">
+            <div class="grad-bar" style="background:linear-gradient(90deg,#7C3AED,#E879F9)"></div>
+            <div class="mock-card-title">Automatización con IA</div>
+            <div class="mock-card-desc" style="font-size:9px;">n8n · Docker · OpenAI/Gemini · Telegram bots</div>
+            <div><span class="mock-tag">n8n</span><span class="mock-tag">Docker</span><span class="mock-tag">OpenAI</span></div>
+            <div class="mock-card-result">→ Reducción de tareas administrativas manuales</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Featured + resto</h3>
+      <p>El primer proyecto (ERP) ocupa el ancho completo como destacado, los otros tres son más compactos. Genera jerarquía visual y permite más detalle en el proyecto más fuerte.</p>
+    </div>
+  </div>
+
+  <!-- Opción C: Lista alternada -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0">
+      <div class="mock-section">
+        <div class="section-label">// Proyectos destacados</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="mock-card" style="display:flex;gap:14px;align-items:center;">
+            <div style="min-width:32px;text-align:center;">
+              <span style="font-size:20px;font-weight:800;color:#7C3AED;font-family:monospace;">01</span>
+            </div>
+            <div style="flex:1">
+              <div class="mock-card-title">ERP / Sistema de Inventario</div>
+              <div><span class="mock-tag">ASP.NET Core 8</span><span class="mock-tag">EF Core</span><span class="mock-tag">SQL Server</span></div>
+            </div>
+            <div class="mock-card-result" style="min-width:120px;text-align:right;font-size:9px;">Ferretería · Digitalización completa →</div>
+          </div>
+          <div class="mock-card" style="display:flex;gap:14px;align-items:center;border-color:#22D3EE22;">
+            <div style="min-width:32px;text-align:center;">
+              <span style="font-size:20px;font-weight:800;color:#22D3EE;font-family:monospace;">02</span>
+            </div>
+            <div style="flex:1">
+              <div class="mock-card-title">App Finanzas Personales</div>
+              <div><span class="mock-tag">.NET MAUI</span><span class="mock-tag">JWT</span></div>
+            </div>
+            <div class="mock-card-result" style="min-width:120px;text-align:right;font-size:9px;">Multiplataforma →</div>
+          </div>
+          <div class="mock-card" style="display:flex;gap:14px;align-items:center;">
+            <div style="min-width:32px;text-align:center;">
+              <span style="font-size:20px;font-weight:800;color:#E879F9;font-family:monospace;">03</span>
+            </div>
+            <div style="flex:1">
+              <div class="mock-card-title">E-Commerce Paz Sport</div>
+              <div><span class="mock-tag">React.js</span><span class="mock-tag">Web API</span></div>
+            </div>
+            <div class="mock-card-result" style="min-width:120px;text-align:right;font-size:9px;">Multi-sucursal →</div>
+          </div>
+          <div class="mock-card" style="display:flex;gap:14px;align-items:center;">
+            <div style="min-width:32px;text-align:center;">
+              <span style="font-size:20px;font-weight:800;color:#7C3AED;font-family:monospace;">04</span>
+            </div>
+            <div style="flex:1">
+              <div class="mock-card-title">Automatización con IA</div>
+              <div><span class="mock-tag">n8n</span><span class="mock-tag">Docker</span><span class="mock-tag">OpenAI</span></div>
+            </div>
+            <div class="mock-card-result" style="min-width:120px;text-align:right;font-size:9px;">Reducción tareas manuales →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Lista horizontal</h3>
+      <p>Cards en fila, más compactas y rápidas de escanear. Número de color, nombre, tags y resultado de un vistazo. Rápido y directo, como una tabla de proyectos pro.</p>
+    </div>
+  </div>
+
+</div>
