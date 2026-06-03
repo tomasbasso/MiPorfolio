@@ -29,7 +29,8 @@ export default function CustomCursor() {
     const onLeave = () => dotRef.current?.classList.remove('scale-[3]')
 
     window.addEventListener('mousemove', onMove)
-    document.querySelectorAll('a, button, [role="button"]').forEach((el) => {
+    const interactives = document.querySelectorAll('a, button, [role="button"]')
+    interactives.forEach((el) => {
       el.addEventListener('mouseenter', onEnter)
       el.addEventListener('mouseleave', onLeave)
     })
@@ -39,6 +40,10 @@ export default function CustomCursor() {
     return () => {
       cancelAnimationFrame(raf)
       window.removeEventListener('mousemove', onMove)
+      interactives.forEach((el) => {
+        el.removeEventListener('mouseenter', onEnter)
+        el.removeEventListener('mouseleave', onLeave)
+      })
     }
   }, [])
 
