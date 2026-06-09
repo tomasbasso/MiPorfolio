@@ -9,9 +9,9 @@ export const personal = {
   telefono: '+54 2302 524872',
   github: 'https://github.com/tomasbasso',
   linkedin: 'https://linkedin.com/in/tomasbasso',
-  cv: `${import.meta.env.BASE_URL}CV_Basso_Tomas.pdf`,
-  foto: `${import.meta.env.BASE_URL}FotoPersonal.png`,
-  logo: `${import.meta.env.BASE_URL}MiLogoPersonal.png`,
+  cv: '/CV_Basso_Tomas.pdf',
+  foto: '/FotoPersonal.png',
+  logo: '/MiLogoPersonal.png',
   frase: 'Construyo soluciones reales de negocio: ERPs, e-commerce y automatizaciones con IA, orientadas a escalabilidad y seguridad.',
 }
 
