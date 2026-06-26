@@ -8,7 +8,7 @@ export const personal = {
   email: 'tomas.basso@hotmail.com',
   telefono: '+54 2302 524872',
   github: 'https://github.com/tomasbasso',
-  linkedin: 'https://linkedin.com/in/tomasbasso',
+  linkedin: 'https://www.linkedin.com/in/tomas-basso/',
   cv: '/CV_Basso_Tomas.pdf',
   foto: '/FotoPersonal.png',
   logo: '/MiLogoPersonal.png',

@@ -7,7 +7,7 @@ const chips = [
   { icon: Mail, label: personal.email, href: `mailto:${personal.email}`, ariaLabel: 'Enviar email a Tomás' },
   { icon: Phone, label: personal.telefono, href: `tel:${personal.telefono}`, ariaLabel: 'Llamar a Tomás' },
   { icon: Globe, label: 'github.com/tomasbasso', href: personal.github, ariaLabel: 'GitHub de Tomás Basso' },
-  { icon: ExternalLink, label: 'linkedin.com/in/tomasbasso', href: personal.linkedin, ariaLabel: 'LinkedIn de Tomás Basso' },
+  { icon: ExternalLink, label: 'linkedin.com/in/tomas-basso', href: personal.linkedin, ariaLabel: 'LinkedIn de Tomás Basso' },
 ]
 
 export default function Contact() {
