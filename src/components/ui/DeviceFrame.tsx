@@ -7,6 +7,7 @@ interface Props {
   url?: string
   tone?: 'light' | 'dark'
   className?: string
+  bodyClassName?: string
   children: ReactNode
 }
 
@@ -20,7 +21,7 @@ function WindowControls() {
   )
 }
 
-export default function DeviceFrame({ variant, title, url, tone = 'light', className = '', children }: Props) {
+export default function DeviceFrame({ variant, title, url, tone = 'light', className = '', bodyClassName = '', children }: Props) {
   const shadow = tone === 'dark' ? 'shadow-frame-dark' : 'shadow-frame'
 
   if (variant === 'phone') {
@@ -47,7 +48,7 @@ export default function DeviceFrame({ variant, title, url, tone = 'light', class
           <div className="mx-auto truncate pr-10 text-[11.5px] font-medium text-[#5C667D]">{title}</div>
         )}
       </div>
-      <div className="relative">{children}</div>
+      <div className={`relative ${bodyClassName}`}>{children}</div>
     </div>
   )
 }

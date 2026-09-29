@@ -151,9 +151,9 @@ export default function IndumentariaScreen({ animate = true }: { animate?: boole
             {ultima && (
               <motion.div
                 key={`${ultima[0]}-${ultima[1]}`}
-                initial={{ opacity: 0, x: 24 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 12 }}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 6 }}
                 transition={{ duration: 0.35 }}
                 className="absolute bottom-4 right-4 flex items-center gap-2 rounded-lg bg-[#1A1A1A] px-3.5 py-2 text-[12px] text-[#FAF9F7] shadow-lg"
               >

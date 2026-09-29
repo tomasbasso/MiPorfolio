@@ -1,85 +1,115 @@
-import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { personal, navLinks } from '../data/content'
+import { useState } from 'react'
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { List, X } from '@phosphor-icons/react'
+import { contacto, marca, navLinks } from '../data/content'
 import { useActiveSection } from '../hooks/useActiveSection'
 import { useReducedMotion } from '../hooks/useReducedMotion'
+import WhatsAppButton from './ui/WhatsAppButton'
+
+const sectionIds = navLinks.map((l) => l.href.slice(1))
+
+export function Wordmark({ className = '' }: { className?: string }) {
+  return (
+    <span className={`font-display font-bold tracking-[0.16em] ${className}`}>
+      BASSO <span className="text-brand">TECH</span>
+    </span>
+  )
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const reduced = useReducedMotion()
-
-  const sectionIds = navLinks.map((l) => l.href.replace('#', ''))
   const active = useActiveSection(sectionIds)
+  const { scrollY } = useScroll()
 
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 80)
-    window.addEventListener('scroll', handler, { passive: true })
-    return () => window.removeEventListener('scroll', handler)
-  }, [])
+  useMotionValueEvent(scrollY, 'change', (y) => {
+    const next = y > 24
+    if (next !== scrolled) setScrolled(next)
+  })
+
+  const solid = scrolled || menuOpen
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={scrolled ? { backdropFilter: 'blur(16px)', background: 'rgba(10,10,15,0.8)', borderBottom: '1px solid var(--border)' } : {}}
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
+        solid ? 'border-b border-line-dark bg-navy/95 backdrop-blur-xl' : 'border-b border-transparent'
+      }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" aria-label="Ir al inicio">
-          <img src={personal.logo} alt="Logo TB" className="h-9 w-9 object-contain" />
+      <nav className="container-bt flex h-[68px] items-center justify-between gap-6" aria-label="Principal">
+        <a href="#inicio" className="flex items-center gap-2.5" aria-label={`${marca.nombre}, ir al inicio`}>
+          <img src="/brand/isotipo.svg" alt="" className="h-8 w-auto" width={29} height={32} />
+          <Wordmark className="text-[15px] text-white" />
         </a>
 
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden items-center gap-7 lg:flex">
           {navLinks.map(({ label, href }) => {
-            const id = href.replace('#', '')
-            const isActive = active === id
+            const isActive = active === href.slice(1)
             return (
               <li key={href}>
                 <a
                   href={href}
-                  className="font-mono text-sm transition-colors duration-200"
-                  style={{ color: isActive ? 'var(--neon-cyan)' : 'var(--text-muted)' }}
+                  aria-current={isActive ? 'true' : undefined}
+                  className={`relative text-[14px] font-medium transition-colors duration-200 ${isActive ? 'text-white' : 'text-white/65 hover:text-white'}`}
                 >
                   {label}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute -bottom-[23px] left-0 right-0 h-[2px] rounded-full bg-brand"
+                      transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                    />
+                  )}
                 </a>
               </li>
             )
           })}
         </ul>
 
-        <button
-          className="md:hidden text-muted"
-          onClick={() => setMenuOpen((v) => !v)}
-          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
-          aria-expanded={menuOpen}
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-2">
+          <WhatsAppButton mensaje={contacto.mensajeGeneral} className="hidden sm:inline-flex">
+            Consultar
+          </WhatsAppButton>
+          <button
+            type="button"
+            className="flex h-11 w-11 items-center justify-center rounded-full text-white/80 hover:bg-white/5 lg:hidden"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={menuOpen}
+            aria-controls="menu-mobile"
+          >
+            {menuOpen ? <X size={24} /> : <List size={24} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={reduced ? false : { opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden glass border-t"
-            style={{ borderColor: 'var(--border)' }}
+            id="menu-mobile"
+            initial={reduced ? false : { opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden border-t border-line-dark lg:hidden"
           >
-            <ul className="flex flex-col px-6 py-4 gap-4">
+            <ul className="container-bt flex flex-col py-3">
               {navLinks.map(({ label, href }) => (
                 <li key={href}>
                   <a
                     href={href}
-                    className="font-mono text-sm"
-                    style={{ color: 'var(--text-muted)' }}
+                    className="block py-3 font-display text-lg font-semibold text-white/85"
                     onClick={() => setMenuOpen(false)}
                   >
                     {label}
                   </a>
                 </li>
               ))}
+              <li className="pb-3 pt-2">
+                <WhatsAppButton mensaje={contacto.mensajeGeneral} className="w-full">
+                  Consultar por WhatsApp
+                </WhatsAppButton>
+              </li>
             </ul>
           </motion.div>
         )}

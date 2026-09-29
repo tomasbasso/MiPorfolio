@@ -3,7 +3,6 @@
 export const marca = {
   nombre: 'BASSO TECH',
   isotipo: '/brand/isotipo.png',
-  imagotipo: '/brand/imagotipo.png',
   logoAnimado: '/brand/logo-animado.svg',
 }
 
@@ -228,7 +227,7 @@ export const pasos: Paso[] = [
 
 export const fundador = {
   nombre: 'Tomás Basso Fernández',
-  rol: 'Fundador de BASSO TECH',
+  rol: 'fundador de BASSO TECH',
   foto: '/brand/tomas.webp',
   bio: [
     'Soy desarrollador de software y trabajo desde Winifreda, La Pampa. Hago sistemas para negocios reales: el mostrador de un comercio, la agenda de un consultorio, la tienda online de una marca.',

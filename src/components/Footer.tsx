@@ -1,47 +1,37 @@
-import { Globe, ExternalLink } from 'lucide-react'
-import { personal } from '../data/content'
+import { fundador, navLinks } from '../data/content'
+import { Wordmark } from './Navbar'
 
 export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer
-      className="py-10 px-6 text-center border-t"
-      style={{ borderColor: 'var(--border)' }}
-    >
-      <div className="max-w-6xl mx-auto flex flex-col items-center gap-5">
-        <img
-          src={personal.logo}
-          alt="Logo TB"
-          className="h-8 w-8 object-contain opacity-70"
-        />
-
-        <div className="flex gap-5">
-          <a
-            href={personal.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub de Tomás Basso"
-            className="transition-colors hover:text-cyan-400"
-            style={{ color: 'var(--text-muted)' }}
-          >
-            <Globe size={18} />
+    <footer className="border-t border-line-dark bg-navy py-12">
+      <div className="container-bt flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+        <div className="max-w-sm">
+          <a href="#inicio" className="flex items-center gap-2.5" aria-label="BASSO TECH, volver al inicio">
+            <img src="/brand/isotipo.svg" alt="" className="h-8 w-auto" width={29} height={32} />
+            <Wordmark className="text-[15px] text-white" />
           </a>
-          <a
-            href={personal.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn de Tomás Basso"
-            className="transition-colors hover:text-cyan-400"
-            style={{ color: 'var(--text-muted)' }}
-          >
-            <ExternalLink size={18} />
-          </a>
+          <p className="mt-4 text-sm leading-relaxed text-mist">
+            Sistemas de gestión y páginas web para comercios, consultorios y PyMEs de Argentina.
+          </p>
         </div>
 
-        <p className="font-mono text-xs" style={{ color: 'var(--text-muted)' }}>
-          © {year} Tomás Basso Fernández
-        </p>
+        <nav aria-label="Secciones">
+          <ul className="grid grid-cols-2 gap-x-10 gap-y-2.5 text-sm">
+            {navLinks.map(({ label, href }) => (
+              <li key={href}>
+                <a href={href} className="text-white/65 transition-colors hover:text-white">
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+
+      <div className="container-bt mt-10 border-t border-line-dark pt-6 text-[13px] text-mist">
+        © {year} BASSO TECH. {fundador.nombre}.
       </div>
     </footer>
   )

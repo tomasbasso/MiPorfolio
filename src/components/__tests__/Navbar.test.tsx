@@ -4,13 +4,18 @@ import Navbar from '../Navbar'
 describe('Navbar', () => {
   it('renderiza los links de navegación', () => {
     render(<Navbar />)
-    expect(screen.getByText('Stack')).toBeInTheDocument()
-    expect(screen.getByText('Proyectos')).toBeInTheDocument()
-    expect(screen.getByText('Contacto')).toBeInTheDocument()
+    for (const label of ['Sistemas', 'Webs', 'Cómo trabajamos', 'Quién soy', 'Contacto']) {
+      expect(screen.getByRole('link', { name: label })).toBeInTheDocument()
+    }
   })
 
-  it('renderiza el logo', () => {
+  it('el botón Consultar abre WhatsApp', () => {
     render(<Navbar />)
-    expect(screen.getByAltText('Logo TB')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /consultar/i })).toHaveAttribute('href', expect.stringMatching(/^https:\/\/wa\.me\/542302524872\?text=/))
+  })
+
+  it('el logo lleva al inicio', () => {
+    render(<Navbar />)
+    expect(screen.getByRole('link', { name: /basso tech, ir al inicio/i })).toHaveAttribute('href', '#inicio')
   })
 })

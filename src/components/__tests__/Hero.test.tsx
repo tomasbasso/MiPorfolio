@@ -2,20 +2,19 @@ import { render, screen } from '@testing-library/react'
 import Hero from '../Hero'
 
 describe('Hero', () => {
-  it('renderiza el nombre', () => {
+  it('muestra el titular con el público objetivo', () => {
     render(<Hero />)
-    expect(screen.getByText('Tomás')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/sistemas de gestión para comercios y consultorios/i)
   })
 
-  it('renderiza botón de CV', () => {
+  it('tiene el CTA de WhatsApp y el link a los sistemas', () => {
     render(<Hero />)
-    expect(screen.getByText('↓ CV')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /consultar por whatsapp/i })).toHaveAttribute('href', expect.stringContaining('wa.me/542302524872'))
+    expect(screen.getByRole('link', { name: /ver sistemas/i })).toHaveAttribute('href', '#sistemas')
   })
 
-  it('link de CV descarga el archivo correcto', () => {
+  it('muestra el logo animado con texto alternativo', () => {
     render(<Hero />)
-    const link = screen.getByText('↓ CV').closest('a')
-    expect(link).toHaveAttribute('href', '/CV_Basso_Tomas.pdf')
-    expect(link).toHaveAttribute('download')
+    expect(screen.getByAltText('BASSO TECH')).toHaveAttribute('src', '/brand/logo-animado.svg')
   })
 })

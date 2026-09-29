@@ -162,7 +162,7 @@ export default function StockScreen({ animate = true }: { animate?: boolean }) {
                 className="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-xl bg-[#14532D] px-4 py-2.5 text-[12.5px] font-medium text-white shadow-lg"
               >
                 <CheckCircle size={18} weight="fill" className="text-[#4ADE80]" />
-                Venta registrada · Factura C N° 0003-00001847 · CAE aprobado
+                Venta registrada: Factura C 0003-00001847, CAE aprobado
               </motion.div>
             )}
           </AnimatePresence>

@@ -10,7 +10,7 @@
 @tailwind utilities;
 
 /*
-  BASSO TECH — sistema visual
+  BASSO TECH - sistema visual
   - Estilo mixto: bloques oscuros (navy del logo) y claros, con un solo acento azul.
   - Radios: marcos y tarjetas 16px (rounded-2xl) · botones, etiquetas y chips en píldora (rounded-full).
     Las pantallas recreadas de cada app respetan los radios propios de esa app.
