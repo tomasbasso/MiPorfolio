@@ -1,164 +1,253 @@
-// Contenido del portfolio — editar aquí sin tocar los componentes
+// Contenido del sitio BASSO TECH — editar aquí sin tocar los componentes
 
-export const personal = {
-  nombre: 'Tomás Basso Fernández',
-  rol: 'Desarrollador Full Stack .NET',
-  ubicacion: 'Winifreda, La Pampa, Argentina',
-  disponibilidad: ['Reubicación', 'Full Remote'],
+export const marca = {
+  nombre: 'BASSO TECH',
+  isotipo: '/brand/isotipo.png',
+  imagotipo: '/brand/imagotipo.png',
+  logoAnimado: '/brand/logo-animado.svg',
+}
+
+export const contacto = {
+  whatsappVisible: '+54 2302 52-4872',
   email: 'tomas.basso@hotmail.com',
-  telefono: '+54 2302 524872',
-  github: 'https://github.com/tomasbasso',
-  linkedin: 'https://www.linkedin.com/in/tomas-basso/',
-  cv: '/CV_Basso_Tomas.pdf',
-  foto: '/FotoPersonal.png',
-  logo: '/MiLogoPersonal.png',
-  frase: 'Construyo soluciones reales de negocio: ERPs, e-commerce y automatizaciones con IA, orientadas a escalabilidad y seguridad.',
+  ubicacion: 'Winifreda, La Pampa, Argentina',
+  mensajeGeneral: 'Hola Tomás, vi la página de BASSO TECH y quiero consultar por un sistema para mi negocio.',
 }
 
-export const sobreMi = `Desarrollador Full Stack .NET con experiencia en construcción de aplicaciones web empresariales, APIs REST y automatización de procesos con IA. Especializado en ASP.NET Core 8, Entity Framework, autenticación segura (JWT, Identity + 2FA) y frontend moderno con React.
-
-Experiencia implementando soluciones reales de negocio (ERP, e-commerce, automatizaciones con LLMs) orientadas a escalabilidad, seguridad y eficiencia operativa.`
-
-export interface StackGrupo {
-  titulo: string
-  color: string
-  items: string[]
+export const hero = {
+  eyebrow: 'Software para tu negocio',
+  titulo: 'Sistemas de gestión y páginas web para',
+  tituloDestacado: 'comercios y consultorios.',
+  subtitulo:
+    'Stock, ventas, turnos y facturación en un sistema hecho a la medida de tu negocio. Con implementación, capacitación y soporte directo.',
 }
 
-export const stack: StackGrupo[] = [
-  {
-    titulo: 'Backend',
-    color: 'var(--neon-violet)',
-    items: ['ASP.NET Core 8 (MVC / Web API)', 'Entity Framework Core', 'LINQ', 'JWT Authentication', 'ASP.NET Identity + 2FA', 'Arquitectura en capas'],
-  },
-  {
-    titulo: 'Frontend',
-    color: 'var(--neon-cyan)',
-    items: ['React.js', 'JavaScript', 'Bootstrap 5', 'AJAX', 'HTML5 / CSS3'],
-  },
-  {
-    titulo: 'Base de datos',
-    color: 'var(--neon-magenta)',
-    items: ['SQL Server'],
-  },
-  {
-    titulo: 'Automatización & DevOps',
-    color: 'var(--neon-cyan)',
-    items: ['n8n', 'Docker', 'Webhooks', 'Integración con APIs externas', 'IMAP / Gmail API', 'Bots de Telegram', 'OpenAI / Gemini'],
-  },
+export const rubros = [
+  'Almacenes',
+  'Kioscos',
+  'Ferreterías',
+  'Tiendas de ropa',
+  'Consultorios',
+  'Kinesiología',
+  'Imprentas',
+  'Distribuidoras',
+  'Municipios',
+  'Emprendimientos',
 ]
 
-export interface Proyecto {
-  id: string
-  titulo: string
+export type PantallaId = 'stock' | 'indumentaria' | 'turnero' | 'kinesio'
+
+export interface Producto {
+  id: PantallaId
+  nombre: string
+  rubro: string
+  plataforma: 'Escritorio' | 'Web'
+  frase: string
   descripcion: string
-  resultado?: string
-  link?: string
-  stackItems: string[]
-  gradFrom: string
-  gradTo: string
-  num: string
+  funciones: string[]
+  opcional?: string
+  demo?: string
+  mensajeWhatsApp: string
 }
 
-export const proyectos: Proyecto[] = [
+export const productos: Producto[] = [
   {
-    id: 'erp',
-    num: '01',
-    titulo: 'ERP / Sistema de Inventario – Ferretería',
-    descripcion: 'Aplicación web para gestión de productos, ventas y control de stock en tiempo real. Autenticación segura con roles y 2FA. Validación automática de inventario previo a facturación. Arquitectura en capas orientada a mantenimiento y escalabilidad.',
-    resultado: 'Digitalización completa del proceso comercial y reducción de errores operativos.',
-    stackItems: ['ASP.NET Core 8 (MVC)', 'EF Core', 'Identity + 2FA', 'SQL Server', 'Bootstrap', 'AJAX'],
-    gradFrom: '#7C3AED',
-    gradTo: '#22D3EE',
+    id: 'stock',
+    nombre: 'Stock y Punto de Venta',
+    rubro: 'Comercios',
+    plataforma: 'Escritorio',
+    frase: 'Vendé, controlá el stock y cerrá la caja desde una sola pantalla.',
+    descripcion:
+      'Pensado para el mostrador: cobrás con lector de código de barras, el stock se descuenta solo y a fin del día tenés la caja cerrada y los números claros.',
+    funciones: [
+      'Venta rápida con lector de código de barras',
+      'Alertas de stock bajo',
+      'Clientes con cuenta corriente',
+      'Presupuestos en PDF',
+      'Caja diaria y reportes de ventas',
+      'Actualización masiva de precios',
+    ],
+    opcional: 'Factura electrónica ARCA (ex AFIP)',
+    mensajeWhatsApp: 'Hola Tomás, me interesa el sistema de Stock y Punto de Venta para mi comercio.',
   },
   {
-    id: 'finanzas',
-    num: '02',
-    titulo: 'App Móvil de Finanzas Personales',
-    descripcion: 'Aplicación multiplataforma conectada a una API REST propia. Autenticación segura mediante JWT. Arquitectura cliente-servidor desacoplada.',
-    stackItems: ['.NET MAUI', 'ASP.NET Core API', 'JWT'],
-    gradFrom: '#E879F9',
-    gradTo: '#7C3AED',
-  },
-  {
-    id: 'ecommerce',
-    num: '03',
-    titulo: 'E-Commerce – Paz Sport',
-    descripcion: 'Plataforma de ventas online con panel administrativo. Gestión dinámica de productos, descuentos y promociones. Consumo de APIs REST y persistencia relacional. Soporte para múltiples sucursales.',
-    resultado: 'Centralización de catálogo y automatización de promociones comerciales.',
-    stackItems: ['React.js', 'ASP.NET Core Web API', 'SQL Server'],
-    gradFrom: '#22D3EE',
-    gradTo: '#E879F9',
-  },
-  {
-    id: 'automatizacion',
-    num: '04',
-    titulo: 'Automatización de Procesos con IA',
-    descripcion: 'Workflows automatizados para procesamiento de correos y extracción de datos no estructurados. Integración con bots de Telegram y generación automática de reportes estructurados. Despliegue en contenedores Docker.',
-    resultado: 'Reducción significativa de tareas administrativas manuales.',
-    stackItems: ['n8n', 'Docker', 'Webhooks', 'IMAP/Gmail API', 'OpenAI / Gemini'],
-    gradFrom: '#7C3AED',
-    gradTo: '#E879F9',
+    id: 'indumentaria',
+    nombre: 'Stock para Indumentaria',
+    rubro: 'Tiendas de ropa',
+    plataforma: 'Escritorio',
+    frase: 'Cada prenda con sus talles y colores, y el stock de cada combinación al día.',
+    descripcion:
+      'Cargás el producto una sola vez y el sistema maneja todas sus variantes. Sabés qué talle se está por agotar antes de que te lo pidan en el mostrador.',
+    funciones: [
+      'Variantes por talle y color',
+      'Código de barras por variante',
+      'Punto de venta y caja',
+      'Clientes y cuenta corriente',
+      'Costos y márgenes por prenda',
+      'Reportes de lo más vendido',
+    ],
+    mensajeWhatsApp: 'Hola Tomás, me interesa el sistema de Stock para Indumentaria para mi tienda.',
   },
   {
     id: 'turnero',
-    num: '05',
-    titulo: 'Turnero Médico — Sistema de Gestión de Turnos',
-    descripcion: 'App web full-stack para consultorios: reserva online paso a paso (wizard especialidad → médico → horario → datos), generación automática de disponibilidad según agenda, ausencias y duración configurable. Panel administrativo con roles (Admin, Médico, Recepcionista), ABM completo, gestión de estados y recordatorios automáticos por email el día previo al turno.',
-    resultado: 'Deployado en producción en Vercel con lógica de disponibilidad propia (sin librerías externas).',
-    link: 'https://turnero-consultorio-seven.vercel.app',
-    stackItems: ['Next.js 16', 'React 19', 'TypeScript', 'Prisma ORM', 'PostgreSQL', 'Supabase', 'Tailwind CSS 4', 'Resend', 'Upstash Redis', 'Vercel'],
-    gradFrom: '#22D3EE',
-    gradTo: '#7C3AED',
+    nombre: 'Turnero online',
+    rubro: 'Consultorios',
+    plataforma: 'Web',
+    frase: 'Tus pacientes sacan turno solos, a cualquier hora, y reciben un recordatorio el día anterior.',
+    descripcion:
+      'Una página de reservas con la imagen de tu consultorio: el paciente elige especialidad, profesional y horario sin registrarse. Vos manejás todo desde un panel.',
+    funciones: [
+      'Reserva online paso a paso, sin registro',
+      'Agenda por profesional, con ausencias y feriados',
+      'Recordatorio automático por email',
+      'Panel para administración, médicos y recepción',
+      'Estados del turno: confirmado, atendido, ausente',
+      'Funciona en celular y computadora',
+    ],
+    demo: 'https://turnero-consultorio-seven.vercel.app',
+    mensajeWhatsApp: 'Hola Tomás, me interesa el Turnero online para mi consultorio.',
+  },
+  {
+    id: 'kinesio',
+    nombre: 'Agenda para Kinesiología',
+    rubro: 'Kinesiología y rehabilitación',
+    plataforma: 'Escritorio',
+    frase: 'Tratamientos por sesiones, historia clínica y cobros, en una agenda que se entiende de un vistazo.',
+    descripcion:
+      'Cargás el tratamiento con las sesiones autorizadas y el sistema arma todos los turnos de una vez, avisándote si se superponen. Cada sesión suma a la historia clínica del paciente.',
+    funciones: [
+      'Agenda semanal por profesional',
+      'Tratamientos con sesiones autorizadas',
+      'Turnos recurrentes con aviso de superposición',
+      'Historia clínica por sesión',
+      'Cobros y saldo por paciente',
+      'Varios profesionales, un solo padrón de pacientes',
+    ],
+    mensajeWhatsApp: 'Hola Tomás, me interesa la Agenda para Kinesiología.',
   },
 ]
 
-export interface ExperienciaItem {
-  rol: string
-  empresa: string
-  periodo: string
+export interface Web {
+  id: string
+  nombre: string
+  tipo: string
+  descripcion: string
+  url: string
+  dominio: string
+  captura: string
+}
+
+export const webs: Web[] = [
+  {
+    id: 'pazsport',
+    nombre: 'PazSport',
+    tipo: 'Tienda online',
+    descripcion: 'E-commerce de indumentaria deportiva con catálogo, promociones y un diseño editorial en blanco y negro.',
+    url: 'https://pazsport.vercel.app',
+    dominio: 'pazsport.vercel.app',
+    captura: '/shots/pazsport.webp',
+  },
+  {
+    id: 'cira',
+    nombre: 'Cira Impresiones',
+    tipo: 'Web + panel de administración',
+    descripcion:
+      'Sitio para una imprenta y sublimación, con catálogo que el cliente actualiza desde su propio panel. Servidor propio con backups automáticos.',
+    url: 'https://ciraimpresiones.com.ar',
+    dominio: 'ciraimpresiones.com.ar',
+    captura: '/shots/cira.webp',
+  },
+  {
+    id: 'winifreda',
+    nombre: 'Municipalidad de Winifreda',
+    tipo: 'Sitio institucional',
+    descripcion: 'Portal del municipio con información para vecinos y visitantes, y el cronograma de farmacias de turno.',
+    url: 'https://winifreda.gob.ar',
+    dominio: 'winifreda.gob.ar',
+    captura: '/shots/winifreda.webp',
+  },
+]
+
+export interface Servicio {
+  titulo: string
+  descripcion: string
+  icono: 'sistemas' | 'webs' | 'soporte' | 'ia'
+  secundario?: boolean
+}
+
+export const servicios: Servicio[] = [
+  {
+    titulo: 'Sistemas a medida',
+    descripcion: 'Si tu negocio trabaja distinto, el sistema se adapta a vos y no al revés.',
+    icono: 'sistemas',
+  },
+  {
+    titulo: 'Páginas web y tiendas online',
+    descripcion: 'Sitios rápidos, que se ven bien en el celular y que podés actualizar vos mismo.',
+    icono: 'webs',
+  },
+  {
+    titulo: 'Implementación y soporte',
+    descripcion: 'Instalación, carga inicial de datos, capacitación y una persona que responde cuando la necesitás.',
+    icono: 'soporte',
+  },
+  {
+    titulo: 'Automatizaciones con IA',
+    descripcion: 'Tareas repetitivas que se resuelven solas: lectura de correos, extracción de datos y reportes.',
+    icono: 'ia',
+    secundario: true,
+  },
+]
+
+export interface Paso {
+  num: string
+  titulo: string
   descripcion: string
 }
 
-export const experiencia: ExperienciaItem[] = [
+export const pasos: Paso[] = [
   {
-    rol: 'Concejal',
-    empresa: 'Municipalidad de Winifreda, La Pampa',
-    periodo: '03/2024 – Actualidad',
-    descripcion: 'Análisis y gestión de proyectos, negociación con diferentes actores sociales, resolución de conflictos y toma de decisiones estratégicas.',
+    num: '01',
+    titulo: 'Charlamos',
+    descripcion: 'Me contás cómo trabaja tu negocio y qué te está complicando. Por WhatsApp o en persona.',
   },
   {
-    rol: 'Gestión Administrativa',
-    empresa: 'La Segunda Seguros / Avalián',
-    periodo: '01/2017 – Actualidad',
-    descripcion: 'Atención directa al cliente, resolución de reclamos bajo presión y optimización de tiempos de respuesta mediante sistemas de gestión.',
+    num: '02',
+    titulo: 'Propuesta',
+    descripcion: 'Te paso qué sistema conviene, qué hay que adaptar y el presupuesto, sin letra chica.',
+  },
+  {
+    num: '03',
+    titulo: 'Implementación',
+    descripcion: 'Instalo el sistema, cargo tus datos y te capacito a vos y a tu equipo.',
+  },
+  {
+    num: '04',
+    titulo: 'Soporte',
+    descripcion: 'Seguimos en contacto para ajustes, dudas y mejoras cuando las necesites.',
   },
 ]
 
-export interface EducacionItem {
-  titulo: string
-  institucion: string
-  periodo: string
+export const fundador = {
+  nombre: 'Tomás Basso Fernández',
+  rol: 'Fundador de BASSO TECH',
+  foto: '/FotoPersonal.png',
+  bio: [
+    'Soy desarrollador de software y trabajo desde Winifreda, La Pampa. Hago sistemas para negocios reales: el mostrador de un comercio, la agenda de un consultorio, la tienda online de una marca.',
+    'Cuando trabajás con BASSO TECH hablás directamente conmigo. El que entiende tu negocio es el mismo que escribe el código y el que te atiende cuando necesitás algo.',
+  ],
+  datos: [
+    'Técnico Superior en Desarrollo de Software',
+    'Técnico en Informática de Gestión (UNLPam)',
+    'Winifreda, La Pampa',
+  ],
 }
-
-export const educacion: EducacionItem[] = [
-  {
-    titulo: 'Técnico Superior en Desarrollo de Software',
-    institucion: 'Instituto Tecnológico de Educación Superior',
-    periodo: '03/2022 – 12/2025',
-  },
-  {
-    titulo: 'Técnico en Informática de Gestión',
-    institucion: 'Universidad Nacional de La Pampa',
-    periodo: '03/2018 – 04/2022',
-  },
-]
 
 // IDs de sección para navegación anclada
 export const navLinks = [
-  { label: 'Sobre mí', href: '#sobre-mi' },
-  { label: 'Stack', href: '#stack' },
-  { label: 'Proyectos', href: '#proyectos' },
-  { label: 'Experiencia', href: '#experiencia' },
+  { label: 'Sistemas', href: '#sistemas' },
+  { label: 'Webs', href: '#webs' },
+  { label: 'Cómo trabajamos', href: '#como-trabajamos' },
+  { label: 'Quién soy', href: '#quien-soy' },
   { label: 'Contacto', href: '#contacto' },
 ]
