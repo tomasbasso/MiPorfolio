@@ -6,30 +6,43 @@
     <meta name="theme-color" content="#060912" />
 
     <!-- SEO -->
-    <title>BASSO TECH | Sistemas de gestión y páginas web</title>
+    <title>Desarrollador de software en La Pampa | BASSO TECH</title>
     <meta
       name="description"
-      content="Sistemas de stock y punto de venta, turneros online, agendas para consultorios y páginas web para comercios y PyMEs de Argentina. Implementación y soporte directo."
+      content="Desarrollador de software en Winifreda, La Pampa: sistemas de stock y ventas, turneros online y páginas web para negocios de Santa Rosa, General Pico y la zona."
     />
+    <meta name="author" content="Tomás Basso Fernández" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://tomasbasso.com.ar/" />
+
+    <!-- Ubicación -->
+    <meta name="geo.region" content="AR-L" />
+    <meta name="geo.placename" content="Winifreda, La Pampa" />
+    <meta name="geo.position" content="-36.2275;-64.2333" />
+    <meta name="ICBM" content="-36.2275, -64.2333" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="BASSO TECH" />
     <meta property="og:url" content="https://tomasbasso.com.ar/" />
-    <meta property="og:title" content="BASSO TECH | Sistemas de gestión y páginas web" />
+    <meta property="og:title" content="BASSO TECH | Desarrollo de software y páginas web en La Pampa" />
     <meta
       property="og:description"
-      content="Stock, ventas, turnos, facturación y páginas web hechos a la medida de tu negocio, con soporte directo."
+      content="Sistemas de gestión, turneros online y páginas web hechos a la medida de tu negocio, desde Winifreda, La Pampa, con soporte directo."
     />
     <meta property="og:image" content="https://tomasbasso.com.ar/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="BASSO TECH, desarrollo de software en La Pampa" />
     <meta property="og:locale" content="es_AR" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="BASSO TECH | Sistemas de gestión y páginas web" />
+    <meta name="twitter:title" content="BASSO TECH | Desarrollo de software y páginas web en La Pampa" />
+    <meta
+      name="twitter:description"
+      content="Sistemas de gestión, turneros online y páginas web para comercios y consultorios de La Pampa."
+    />
     <meta name="twitter:image" content="https://tomasbasso.com.ar/og-image.png" />
 
     <!-- Favicon -->
@@ -37,26 +50,87 @@
     <link rel="icon" type="image/png" href="/brand/isotipo-160.png" />
     <link rel="apple-touch-icon" href="/brand/isotipo-160.png" />
 
-    <!-- Datos estructurados -->
+    <!-- Datos estructurados (negocio local, persona y sitio) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "BASSO TECH",
-        "url": "https://tomasbasso.com.ar/",
-        "logo": "https://tomasbasso.com.ar/brand/isotipo.png",
-        "image": "https://tomasbasso.com.ar/og-image.png",
-        "description": "Sistemas de gestión y páginas web para comercios, consultorios y PyMEs.",
-        "telephone": "+54 2302 524872",
-        "email": "tomas.basso@hotmail.com",
-        "areaServed": { "@type": "Country", "name": "Argentina" },
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Winifreda",
-          "addressRegion": "La Pampa",
-          "addressCountry": "AR"
-        },
-        "founder": { "@type": "Person", "name": "Tomás Basso Fernández" }
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://tomasbasso.com.ar/#negocio",
+            "name": "BASSO TECH",
+            "alternateName": "Tomás Basso, desarrollador de software",
+            "url": "https://tomasbasso.com.ar/",
+            "logo": "https://tomasbasso.com.ar/brand/isotipo.png",
+            "image": ["https://tomasbasso.com.ar/og-image.png", "https://tomasbasso.com.ar/brand/tomas.webp"],
+            "description": "Desarrollo de software en La Pampa: sistemas de stock y punto de venta, turneros online, agendas para consultorios y páginas web para comercios y PyMEs.",
+            "telephone": "+54 9 2302 52-4872",
+            "email": "tomas.basso@hotmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Winifreda",
+              "postalCode": "6313",
+              "addressRegion": "La Pampa",
+              "addressCountry": "AR"
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": -36.2275, "longitude": -64.2333 },
+            "areaServed": [
+              { "@type": "City", "name": "Winifreda" },
+              { "@type": "City", "name": "Santa Rosa" },
+              { "@type": "City", "name": "Toay" },
+              { "@type": "City", "name": "General Pico" },
+              { "@type": "City", "name": "Eduardo Castex" },
+              { "@type": "City", "name": "Colonia Barón" },
+              { "@type": "City", "name": "Quemú Quemú" },
+              { "@type": "City", "name": "Victorica" },
+              { "@type": "State", "name": "La Pampa" },
+              { "@type": "Country", "name": "Argentina" }
+            ],
+            "knowsAbout": [
+              "Desarrollo de software",
+              "Sistemas de gestión",
+              "Sistemas de stock y punto de venta",
+              "Turneros online",
+              "Diseño y desarrollo de páginas web",
+              "Tiendas online",
+              "Factura electrónica ARCA"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Servicios de BASSO TECH",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistema de stock y punto de venta para comercios" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistema de stock para tiendas de indumentaria" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Turnero online para consultorios" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agenda para kinesiología" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desarrollo de software a medida" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diseño de páginas web y tiendas online" } }
+              ]
+            },
+            "founder": { "@id": "https://tomasbasso.com.ar/#tomas" },
+            "sameAs": ["https://www.linkedin.com/in/tomas-basso/", "https://github.com/tomasbasso"]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://tomasbasso.com.ar/#tomas",
+            "name": "Tomás Basso Fernández",
+            "jobTitle": "Desarrollador de software",
+            "image": "https://tomasbasso.com.ar/brand/tomas.webp",
+            "url": "https://tomasbasso.com.ar/",
+            "worksFor": { "@id": "https://tomasbasso.com.ar/#negocio" },
+            "homeLocation": { "@type": "Place", "name": "Winifreda, La Pampa, Argentina" },
+            "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad Nacional de La Pampa" },
+            "sameAs": ["https://www.linkedin.com/in/tomas-basso/", "https://github.com/tomasbasso"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://tomasbasso.com.ar/#sitio",
+            "url": "https://tomasbasso.com.ar/",
+            "name": "BASSO TECH",
+            "inLanguage": "es-AR",
+            "publisher": { "@id": "https://tomasbasso.com.ar/#negocio" }
+          }
+        ]
       }
     </script>
   </head>

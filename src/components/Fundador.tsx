@@ -13,7 +13,7 @@ export default function Fundador() {
             <div className="absolute -inset-3 -z-0 rotate-[-2.5deg] rounded-[1.4rem] bg-brand" aria-hidden="true" />
             <img
               src={fundador.foto}
-              alt={`${fundador.nombre}, fundador de BASSO TECH`}
+              alt={`${fundador.nombre}, desarrollador de software en Winifreda, La Pampa`}
               loading="lazy"
               width={900}
               height={1125}

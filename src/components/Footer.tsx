@@ -13,7 +13,7 @@ export default function Footer() {
             <Wordmark className="text-[15px] text-white" />
           </a>
           <p className="mt-4 text-sm leading-relaxed text-mist">
-            Sistemas de gestión y páginas web para comercios, consultorios y PyMEs de Argentina.
+            Desarrollo de software y páginas web desde Winifreda, La Pampa, para comercios, consultorios y PyMEs de todo el país.
           </p>
         </div>
 
@@ -30,7 +30,8 @@ export default function Footer() {
         </nav>
       </div>
 
-      <div className="container-bt mt-10 border-t border-line-dark pt-6 text-[13px] text-mist">
+      {/* El año queda fijo en el HTML prerenderizado; si cambió desde el build, el cliente lo corrige sin avisar */}
+      <div className="container-bt mt-10 border-t border-line-dark pt-6 text-[13px] text-mist" suppressHydrationWarning>
         © {year} BASSO TECH. {fundador.nombre}.
       </div>
     </footer>
