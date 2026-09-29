@@ -21,7 +21,7 @@ export default function App() {
       duration: 1.1,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      anchors: { offset: -68 },
+      anchors: true, // respeta el scroll-margin-top de las secciones
     })
 
     let raf = 0

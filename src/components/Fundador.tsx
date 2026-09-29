@@ -9,7 +9,7 @@ export default function Fundador() {
     <section id="quien-soy" className="bg-dots-light py-24 text-ink sm:py-32">
       <div className="container-bt grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
         <Reveal y={36}>
-          <div className="relative mx-auto max-w-[420px]">
+          <div className="relative mx-4 max-w-[420px] sm:mx-auto">
             <div className="absolute -inset-3 -z-0 rotate-[-2.5deg] rounded-[1.4rem] bg-brand" aria-hidden="true" />
             <img
               src={fundador.foto}
