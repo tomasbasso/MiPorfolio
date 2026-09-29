@@ -1,67 +1,102 @@
-/* Fuentes */
-@import '@fontsource/space-grotesk/700.css';
+/* Fuentes (self-hosted vía @fontsource) */
+@import '@fontsource/sora/600.css';
+@import '@fontsource/sora/700.css';
 @import '@fontsource/inter/400.css';
 @import '@fontsource/inter/500.css';
-@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/inter/600.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Variables */
+/*
+  BASSO TECH — sistema visual
+  - Estilo mixto: bloques oscuros (navy del logo) y claros, con un solo acento azul.
+  - Radios: marcos y tarjetas 16px (rounded-2xl) · botones, etiquetas y chips en píldora (rounded-full).
+    Las pantallas recreadas de cada app respetan los radios propios de esa app.
+*/
 :root {
-  --bg:           #0A0A0F;
-  --bg-elev:      #12121A;
-  --border:       #1F1F2E;
-  --text:         #E8E8F0;
-  --text-muted:   #8B8B9E;
-  --neon-cyan:    #22D3EE;
-  --neon-violet:  #7C3AED;
-  --neon-magenta: #E879F9;
-  --grad: linear-gradient(135deg, #7C3AED 0%, #22D3EE 100%);
+  --navy: #060912;
+  --navy-2: #0c1220;
+  --line-dark: #1a2336;
+  --brand: #0a60fe;
+  --brand-soft: #5b95ff;
+  --white: #fefefe;
+  --paper: #f5f7fb;
+  --paper-2: #ffffff;
+  --ink: #0b1222;
+  --ink-soft: #56607a;
+  --mist: #8a94a8;
+  --line-light: #e3e8f1;
+  --wa: #25d366;
+  --nav-h: 68px;
 }
 
-/* Reset base */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: auto; } /* Lenis maneja el scroll suave */
+html {
+  scroll-behavior: auto; /* Lenis maneja el scroll suave */
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--navy);
+  color: var(--white);
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* Grid sutil de fondo */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 48px 48px;
-  opacity: 0.3;
-  pointer-events: none;
-  z-index: 0;
+section[id] {
+  scroll-margin-top: var(--nav-h);
 }
 
-/* Gradiente de texto reutilizable */
-.grad-text {
-  background: var(--grad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+::selection {
+  background: rgba(10, 96, 254, 0.28);
 }
 
-/* Glassmorphism base */
-.glass {
-  background: rgba(18, 18, 26, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border);
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@layer components {
+  .container-bt {
+    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8;
+  }
+
+  .h-display {
+    @apply font-display font-bold tracking-[-0.025em];
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Brillo azul de fondo para bloques oscuros */
+  .bg-glow {
+    background:
+      radial-gradient(60% 55% at 85% 0%, rgba(10, 96, 254, 0.18), transparent 70%),
+      radial-gradient(45% 40% at 0% 100%, rgba(10, 96, 254, 0.08), transparent 70%),
+      var(--navy);
+  }
+
+  /* Textura sutil de puntos para las secciones claras */
+  .bg-dots-light {
+    background-color: var(--paper);
+    background-image: radial-gradient(rgba(11, 18, 34, 0.07) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
+
+/* Marquesina de rubros */
+@keyframes bt-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: bt-marquee 38s linear infinite;
 }
 
 /* Reducción de movimiento */
@@ -70,5 +105,8 @@ body::before {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .marquee-track {
+    animation: none;
   }
 }

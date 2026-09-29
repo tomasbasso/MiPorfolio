@@ -16,10 +16,9 @@ export const contacto = {
 
 export const hero = {
   eyebrow: 'Software para tu negocio',
-  titulo: 'Sistemas de gestión y páginas web para',
+  titulo: 'Sistemas de gestión para',
   tituloDestacado: 'comercios y consultorios.',
-  subtitulo:
-    'Stock, ventas, turnos y facturación en un sistema hecho a la medida de tu negocio. Con implementación, capacitación y soporte directo.',
+  subtitulo: 'Stock, ventas, turnos, facturación y páginas web hechos a la medida de tu negocio, con soporte directo.',
 }
 
 export const rubros = [
@@ -104,7 +103,6 @@ export const productos: Producto[] = [
       'Estados del turno: confirmado, atendido, ausente',
       'Funciona en celular y computadora',
     ],
-    demo: 'https://turnero-consultorio-seven.vercel.app',
     mensajeWhatsApp: 'Hola Tomás, me interesa el Turnero online para mi consultorio.',
   },
   {
@@ -142,7 +140,7 @@ export const webs: Web[] = [
     id: 'pazsport',
     nombre: 'PazSport',
     tipo: 'Tienda online',
-    descripcion: 'E-commerce de indumentaria deportiva con catálogo, promociones y un diseño editorial en blanco y negro.',
+    descripcion: 'Tienda de indumentaria deportiva con un perchero 3D que se gira con el dedo, catálogo por talle y pedidos que se cierran por WhatsApp.',
     url: 'https://pazsport.vercel.app',
     dominio: 'pazsport.vercel.app',
     captura: '/shots/pazsport.webp',
@@ -152,7 +150,7 @@ export const webs: Web[] = [
     nombre: 'Cira Impresiones',
     tipo: 'Web + panel de administración',
     descripcion:
-      'Sitio para una imprenta y sublimación, con catálogo que el cliente actualiza desde su propio panel. Servidor propio con backups automáticos.',
+      'Regalos personalizados e impresiones a pedido: el cliente sube su diseño y coordina por WhatsApp. Panel propio para cargar productos y servidor con backups automáticos.',
     url: 'https://ciraimpresiones.com.ar',
     dominio: 'ciraimpresiones.com.ar',
     captura: '/shots/cira.webp',
@@ -161,7 +159,7 @@ export const webs: Web[] = [
     id: 'winifreda',
     nombre: 'Municipalidad de Winifreda',
     tipo: 'Sitio institucional',
-    descripcion: 'Portal del municipio con información para vecinos y visitantes, y el cronograma de farmacias de turno.',
+    descripcion: 'Portal oficial del municipio: servicios, turismo, agenda, noticias, teléfonos de emergencia y farmacias de turno.',
     url: 'https://winifreda.gob.ar',
     dominio: 'winifreda.gob.ar',
     captura: '/shots/winifreda.webp',
@@ -231,7 +229,7 @@ export const pasos: Paso[] = [
 export const fundador = {
   nombre: 'Tomás Basso Fernández',
   rol: 'Fundador de BASSO TECH',
-  foto: '/FotoPersonal.png',
+  foto: '/brand/tomas.webp',
   bio: [
     'Soy desarrollador de software y trabajo desde Winifreda, La Pampa. Hago sistemas para negocios reales: el mostrador de un comercio, la agenda de un consultorio, la tienda online de una marca.',
     'Cuando trabajás con BASSO TECH hablás directamente conmigo. El que entiende tu negocio es el mismo que escribe el código y el que te atiende cuando necesitás algo.',
