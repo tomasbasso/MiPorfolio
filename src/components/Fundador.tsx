@@ -15,9 +15,9 @@ export default function Fundador() {
               src={fundador.foto}
               alt={`${fundador.nombre}, fundador de BASSO TECH`}
               loading="lazy"
-              width={566}
-              height={511}
-              className="relative aspect-[4/5] w-full rounded-2xl object-cover object-[46%_25%] shadow-frame"
+              width={900}
+              height={1125}
+              className="relative aspect-[4/5] w-full rounded-2xl object-cover object-top shadow-frame"
             />
           </div>
         </Reveal>
