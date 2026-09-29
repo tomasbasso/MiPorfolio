@@ -1,4 +1,5 @@
 // Inserta el HTML renderizado de la app dentro de dist/index.html (prerender estático para SEO)
+import { execSync } from 'node:child_process'
 import { readFile, rm, writeFile } from 'node:fs/promises'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
@@ -15,4 +16,15 @@ if (!html.includes(marcador)) throw new Error(`No se encontró ${marcador} en di
 await writeFile(indexPath, html.replace(marcador, `<div id="root">${render()}</div>`))
 await rm(`${raiz}dist-ssr`, { recursive: true, force: true })
 
-console.log('✓ Prerender listo: dist/index.html')
+// lastmod del sitemap = fecha del último commit (cuando cambió el contenido), para que Bing y Google detecten novedades
+const sitemapPath = `${raiz}dist/sitemap.xml`
+let fecha = new Date().toISOString().slice(0, 10)
+try {
+  fecha = execSync('git log -1 --format=%cs', { cwd: raiz }).toString().trim() || fecha
+} catch {
+  // sin git se usa la fecha del build
+}
+const sitemap = await readFile(sitemapPath, 'utf8')
+await writeFile(sitemapPath, sitemap.replace(/<lastmod>[^<]*<\/lastmod>/g, `<lastmod>${fecha}</lastmod>`))
+
+console.log(`✓ Prerender listo: dist/index.html · sitemap lastmod ${fecha}`)

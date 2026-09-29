@@ -52,39 +52,18 @@ export default function Hero() {
             height={104}
           />
 
-          <motion.p
-            variants={texto}
-            custom={0.9}
-            initial={initial}
-            animate="visible"
-            className="mb-4 text-[13px] font-semibold uppercase tracking-[0.18em] text-brand-soft"
-          >
-            {hero.eyebrow}
-          </motion.p>
+          {/* El texto va visible desde el HTML inicial (sin fundido): es lo primero que leen buscadores y usuarios */}
+          <p className="mb-4 text-[13px] font-semibold uppercase tracking-[0.18em] text-brand-soft">{hero.eyebrow}</p>
 
-          <motion.h1
-            variants={texto}
-            custom={1.0}
-            initial={initial}
-            animate="visible"
-            className="h-display text-[2.05rem] leading-[1.08] text-white sm:text-[2.9rem] lg:text-[2.45rem] xl:text-[3rem]"
-          >
+          <h1 className="h-display text-[2.05rem] leading-[1.08] text-white sm:text-[2.9rem] lg:text-[2.45rem] xl:text-[3rem]">
             {hero.titulo} <span className="text-brand-soft">{hero.tituloDestacado}</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            variants={texto}
-            custom={1.15}
-            initial={initial}
-            animate="visible"
-            className="text-pretty mt-5 max-w-[34rem] text-[1.08rem] leading-relaxed text-mist sm:text-lg"
-          >
-            {hero.subtitulo}
-          </motion.p>
+          <p className="text-pretty mt-5 max-w-[34rem] text-[1.08rem] leading-relaxed text-mist sm:text-lg">{hero.subtitulo}</p>
 
           <motion.div
             variants={texto}
-            custom={1.3}
+            custom={0.6}
             initial={initial}
             animate="visible"
             className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"

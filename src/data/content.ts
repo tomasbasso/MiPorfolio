@@ -232,7 +232,7 @@ export const fundador = {
   bio: [
     'Soy desarrollador de software y trabajo desde Winifreda, La Pampa. Hago sistemas para negocios reales: el mostrador de un comercio, la agenda de un consultorio, la tienda online de una marca.',
     'Cuando trabajás con BASSO TECH hablás directamente conmigo. El que entiende tu negocio es el mismo que escribe el código y el que te atiende cuando necesitás algo.',
-    'Visito en persona a comercios y consultorios de Winifreda, Santa Rosa, Toay, General Pico, Eduardo Castex, Victorica y el resto de La Pampa. Con clientes de otras provincias trabajamos a distancia.',
+    'Visito en persona a comercios y consultorios de Winifreda, Santa Rosa, Toay, General Pico, Eduardo Castex, Victorica, Colonia Barón, Quemú Quemú y el resto de La Pampa. Con clientes de otras provincias trabajamos a distancia.',
   ],
   datos: [
     'Técnico Superior en Desarrollo de Software',
